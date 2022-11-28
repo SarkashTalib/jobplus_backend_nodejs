@@ -7,4 +7,9 @@ exports.createUser = async (body) => {
 
   const { rows } = await db.query( 
     'INSERT INTO "users" (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *',
-    [first_name, last_name, email, hashedPassword]
+    [first_name, last_name, email, password]
+  );
+
+  return rows;
+};
+
