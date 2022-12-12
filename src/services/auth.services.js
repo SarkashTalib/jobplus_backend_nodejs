@@ -26,7 +26,15 @@ const login = async (body) => {
   return token;
 }
 
+// active user
+const active = async (token) => {
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  const { rows } = await db.query('SELECT * FROM "users" WHERE id = $1', [decoded.id]);
+  return rows[0];
+};
+
 // export all the functions
 module.exports = {
   login,
+  active,
 };
