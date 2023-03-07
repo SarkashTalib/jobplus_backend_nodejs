@@ -2,8 +2,8 @@ require('dotenv').config();
 
 const app = require('./src/app');
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 80;
 
 app.listen(port, () => {
-  console.log(`Server is running on port http://localhost:${port}`);
+  console.log(`Server is running on port https://jobplus-backend.onrender.com:${port}`);
 });
